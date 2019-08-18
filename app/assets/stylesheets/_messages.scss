@@ -1,0 +1,173 @@
+* {
+  box-sizing: border-box;
+}
+
+form {
+  display: flex;
+}
+
+
+
+.top-contents {
+  width: 100%;
+  background-color: $light-blue;
+  color: $font-color;
+  text-align: center;
+}
+
+.wrapper {
+  &__side-contents {
+    width: 300px;
+    float: left;
+    color: $font-color;
+    &__box {
+      background-color: #253141;
+      height: 100px;
+      display: flex;
+      align-items: center;
+      padding: 0 20px;
+      &__info {
+        display: flex;
+        justify-content: space-between;
+        width: 100%;
+        font-weight: bold;
+        &__user {
+          margin: 0;
+          padding: 0;
+        }      
+        &__icon {
+          display: flex;
+          &__new-group {
+            margin-left: 0.3rem;
+            &__btn {
+              color: $font-color;
+            }
+          }
+          &__edit-user {
+            margin-left: 0.3rem;
+            &__btn {
+              color: $font-color;
+            }
+          }
+        }
+      }
+    }
+    &__groups {
+      height: calc(100vh - 100px);
+      background-color: #2f3e51;
+      overflow: scroll;
+      padding: 20px 20px 0;
+      color: $font-color;
+      &__group {
+        margin-bottom: 40px;
+        &__group-name {
+          font-size: 15px;
+          margin-bottom: 5px;
+        }
+        &__last-message {
+          font-size: 11px;
+        }
+      }
+    }
+  }
+  &__chat-contents {
+    width: calc(100vw - 300px);
+    float: left;
+    &__header {
+      height: 100px;
+      padding: 0 40px;
+      display: flex;
+      justify-content: space-between;
+      border-bottom: solid 1px #eeeeee;
+      overflow: scroll;
+      &__left-box {
+        margin-top: 35px;
+        &__current-group {
+          font-size: 20px;
+          color: #333333;
+          margin-bottom: 15px;
+        }
+        &__member-list {
+          font-size: 12px;
+          color: $sub-font-color;
+          display: flex;
+        }
+      }
+      &__edit-btn {
+        color: $light-blue;
+        margin-top: 30px;
+        height: 40px;
+        padding: 0 20px;
+        border: solid 1px $light-blue;
+        position: absolute;
+        right: 40px;
+        line-height: 40px;
+      }
+    }
+    &__messages {
+      height: calc(100vh - 190px);
+      padding: 46px 40px;
+      background-color: #fafafa;
+      overflow: scroll;
+      &__message {
+        padding-bottom: 40px;
+        &__upper-info {
+          padding-bottom: 10px;
+          display: flex;
+          &__talker {
+            color: $message-color;
+            font-size: 16px;
+            font-weight: bold;
+          }
+          &__data {
+            color: $sub-font-color;
+            font-size: 12px;
+            margin-left: 10px;
+          }
+        }
+        &__text {
+          color: $message-color;
+          font-size: 14px;
+          margin-bottom: 10px;
+        }
+      }
+    }
+    &__form {
+      height: 90px;
+      padding: 20px 40px;
+      background-color: #dddddd;
+      &__new-message {
+        &__input-box {
+          position: relative;
+          width: 100%;
+          &__text {
+            height: 50px;
+            width: 100%;
+            padding: 0 40px 0 10px;
+            color: $message-color;
+            border-style: none;
+          }
+          &__image {
+            font-size: 1.3rem;
+            position: absolute;
+            top: 10px;
+            right: 10px;
+            cursor: pointer;
+            &__message-image {
+              display: none;
+            }
+          }
+        }
+        &__send-btn {
+          width: 100px;
+          height: 50px;
+          padding: 0 30px;
+          margin-left: 15px;
+          background-color: $light-blue;
+          color: $font-color;
+          cursor: pointer;
+        }
+      }
+    }
+  }
+}

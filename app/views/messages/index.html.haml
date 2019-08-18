@@ -1,0 +1,42 @@
+-# .top-contents
+-#   グループを作成しました
+.wrapper
+  .wrapper__side-contents
+    .wrapper__side-contents__box
+      .wrapper__side-contents__box__info
+        %p.wrapper__side-contents__box__info__user
+          ayano
+        %ul.wrapper__side-contents__box__info__icon
+          %li.wrapper__side-contents__box__info__icon__new-group
+            =link_to "/messages/new", class: "wrapper__side-contents__box__info__icon__new-group__btn" do
+              =fa_icon 'edit'
+          %li.wrapper__side-contents__box__info__icon__edit-user
+            =link_to "/user/edit", class: "wrapper__side-contents__box__info__icon__edit-user__btn" do
+              =fa_icon 'cog'
+    .wrapper__side-contents__groups
+      = render partial: 'messages/group'        
+  .wrapper__chat-contents
+    .wrapper__chat-contents__header
+      .wrapper__chat-contents__header__left-box
+        %h2.wrapper__chat-contents__header__left-box__current-group
+          グループ名
+        %ul.wrapper__chat-contents__header__left-box__member-list
+          Member：
+          %li.wrapper__chat-contents__header__left-box__member-list__member
+            user1,user2
+      =link_to "/messages/group_id/edit" do
+        .wrapper__chat-contents__header__edit-btn
+          Edit
+    .wrapper__chat-contents__messages
+      = render partial: 'messages/message'
+    .wrapper__chat-contents__form
+      %form{class: "new-message", enctype: "multipart/form-data", action: "groups/group_id/messages", "accept-charset": "UTF-8", method: "post"}
+        %input{name: "utf8", type: "hidden", value: "✓"}
+        %input{type: "hidden", name: "authenticity_token", value: "%form_authenticity_token"}
+        .wrapper__chat-contents__form__new-message__input-box
+          %input{class: "wrapper__chat-contents__form__new-message__input-box__text", name: "message[content]", placeholder: "type a message", type: "text"}
+          %label{class: "wrapper__chat-contents__form__new-message__input-box__image", for: "wrapper__chat-contents__form__new-message__input-box__image__message-image"}
+            =fa_icon 'image'
+            %input{class: "wrapper__chat-contents__form__new-message__input-box__image__message-image", type: "file", name: "message[image]"}
+        %input{class: "wrapper__chat-contents__form__new-message__send-btn", type: "submit", value: "Send", "data:-disable-with": "Send"}
+
