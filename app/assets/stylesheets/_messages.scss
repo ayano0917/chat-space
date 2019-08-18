@@ -1,13 +1,3 @@
-* {
-  box-sizing: border-box;
-}
-
-form {
-  display: flex;
-}
-
-
-
 .top-contents {
   width: 100%;
   background-color: $light-blue;
@@ -16,6 +6,15 @@ form {
 }
 
 .wrapper {
+  form {
+    display: flex;
+  }  
+  * {
+    box-sizing: border-box;
+  }
+  *::-webkit-scrollbar {
+    display: none;
+  }
   &__side-contents {
     width: 300px;
     float: left;
