@@ -8,11 +8,11 @@
           ayano
         %ul.wrapper__side-contents__box__info__icon
           %li.wrapper__side-contents__box__info__icon__new-group
-            =link_to "/messages/new", class: "wrapper__side-contents__box__info__icon__new-group__btn" do
+            =link_to "/messages/edit", class: "wrapper__side-contents__box__info__icon__new-group__btn" do
               =fa_icon 'edit'
           %li.wrapper__side-contents__box__info__icon__edit-user
-            =link_to "/user/edit", class: "wrapper__side-contents__box__info__icon__edit-user__btn" do
-              =fa_icon 'cog'
+            =link_to edit_user_path(current_user) do
+              =fa_icon 'cog', class: "wrapper__side-contents__box__info__icon__edit-user__btn"
     .wrapper__side-contents__groups
       = render partial: 'messages/group'        
   .wrapper__chat-contents
