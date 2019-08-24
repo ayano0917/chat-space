@@ -5,7 +5,7 @@
     .wrapper__side-contents__box
       .wrapper__side-contents__box__info
         %p.wrapper__side-contents__box__info__user
-          ayano
+          = current_user.name
         %ul.wrapper__side-contents__box__info__icon
           %li.wrapper__side-contents__box__info__icon__new-group
             =link_to "/messages/edit", class: "wrapper__side-contents__box__info__icon__new-group__btn" do
