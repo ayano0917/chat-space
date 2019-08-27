@@ -8,8 +8,8 @@
           = current_user.name
         %ul.wrapper__side-contents__box__info__icon
           %li.wrapper__side-contents__box__info__icon__new-group
-            =link_to "/messages/edit", class: "wrapper__side-contents__box__info__icon__new-group__btn" do
-              =fa_icon 'edit'
+            =link_to new_group_path do
+              =fa_icon 'edit', class: "wrapper__side-contents__box__info__icon__new-group__btn"
           %li.wrapper__side-contents__box__info__icon__edit-user
             =link_to edit_user_path(current_user) do
               =fa_icon 'cog', class: "wrapper__side-contents__box__info__icon__edit-user__btn"
