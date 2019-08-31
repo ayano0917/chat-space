@@ -1,0 +1,20 @@
+.wrapper__side-contents
+  .wrapper__side-contents__box
+    .wrapper__side-contents__box__info
+      %p.wrapper__side-contents__box__info__user
+        = current_user.name
+      %ul.wrapper__side-contents__box__info__icon
+        %li.wrapper__side-contents__box__info__icon__new-group
+          =link_to new_group_path do
+            =fa_icon 'edit', class: "wrapper__side-contents__box__info__icon__new-group__btn"
+        %li.wrapper__side-contents__box__info__icon__edit-user
+          =link_to edit_user_path(current_user) do
+            =fa_icon 'cog', class: "wrapper__side-contents__box__info__icon__edit-user__btn"
+  .wrapper__side-contents__groups
+    - current_user.groups.each do |group|
+      .wrapper__side-contents__groups__group
+        =link_to group_messages_path(group) do
+          %p.wrapper__side-contents__groups__group__group-name
+            = group.name
+          %p.wrapper__side-contents__groups__group__last-message
+            メッセージはまだなし
