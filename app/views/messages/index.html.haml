@@ -10,7 +10,7 @@
           %li.wrapper__chat-contents__header__left-box__member-list__member
             - @group.group_users.each do |group_user|
               = group_user.user.name
-      =link_to "/messages/group_id/edit" do
+      =link_to edit_group_path do
         .wrapper__chat-contents__header__edit-btn
           Edit
     .wrapper__chat-contents__messages
