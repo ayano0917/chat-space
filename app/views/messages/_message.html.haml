@@ -1,16 +1,11 @@
 .wrapper__chat-contents__messages__message
   .wrapper__chat-contents__messages__message__upper-info
     %p.wrapper__chat-contents__messages__message__upper-info__talker
-      仮の人
+      =message.user.name
     %p.wrapper__chat-contents__messages__message__upper-info__data
-      2019/08/12(Mon)13.34.03
+      =message.created_at.strftime("%Y/%m/%d %H:%M")
   %p.wrapper__chat-contents__messages__message__text
-    こんにちわ！
-.wrapper__chat-contents__messages__message
-  .wrapper__chat-contents__messages__message__upper-info
-    %p.wrapper__chat-contents__messages__message__upper-info__talker
-      メンバーの人
-    %p.wrapper__chat-contents__messages__message__upper-info__data
-      2019/08/12(Mon)22.12.45
-  %p.wrapper__chat-contents__messages__message__text
-    こんばんわ！
+    - if message.content.present?
+      %p.wrapper__chat-contents__messages__message__text__content
+        = message.content
+    = image_tag message.image.url, class: 'wrapper__chat-contents__messages__message__text__image' if message.image.present?
