@@ -8,4 +8,5 @@
     - if message.content.present?
       %p.wrapper__chat-contents__messages__message__text__content
         = message.content
-    = image_tag message.image.url, class: 'wrapper__chat-contents__messages__message__text__image' if message.image.present?
+        %binding.pry
+    = image_tag message.image, class: 'wrapper__chat-contents__messages__message__text__image' if message.image.present?
