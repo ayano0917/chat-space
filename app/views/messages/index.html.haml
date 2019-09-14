@@ -3,14 +3,14 @@
   .wrapper__chat-contents
     .wrapper__chat-contents__header
       .wrapper__chat-contents__header__left-box
-        %h2.wrapper__chat-contents__header__left-box__current-group
+        .wrapper__chat-contents__header__left-box__current-group
           = @group.name
-        %ul.wrapper__chat-contents__header__left-box__member-list
+        .wrapper__chat-contents__header__left-box__member-list
           Member：
-          %li.wrapper__chat-contents__header__left-box__member-list__member
+          .wrapper__chat-contents__header__left-box__member-list__member
             - @group.group_users.each do |group_user|
               = group_user.user.name
-      =link_to "/messages/group_id/edit" do
+      = link_to "edit" do
         .wrapper__chat-contents__header__edit-btn
           Edit
     .wrapper__chat-contents__messages

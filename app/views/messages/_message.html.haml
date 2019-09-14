@@ -1,12 +1,11 @@
 .wrapper__chat-contents__messages__message
   .wrapper__chat-contents__messages__message__upper-info
-    %p.wrapper__chat-contents__messages__message__upper-info__talker
+    .wrapper__chat-contents__messages__message__upper-info__talker
       =message.user.name
-    %p.wrapper__chat-contents__messages__message__upper-info__data
+    .wrapper__chat-contents__messages__message__upper-info__data
       =message.created_at.strftime("%Y/%m/%d %H:%M")
-  %p.wrapper__chat-contents__messages__message__text
+  .wrapper__chat-contents__messages__message__text
     - if message.content.present?
-      %p.wrapper__chat-contents__messages__message__text__content
+      .wrapper__chat-contents__messages__message__text__content
         = message.content
-        %binding.pry
     = image_tag message.image, class: 'wrapper__chat-contents__messages__message__text__image' if message.image.present?
