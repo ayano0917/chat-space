@@ -1,7 +1,10 @@
 $(document).on('turbolinks:load', function() {
   $(function(){
     function buildPost(message){
-      if (message.image) {
+      var MessageImage = ``
+      if (message.image){
+        MessageImage = ` <img src=${message.image} >`
+      }
         var html = `<div class="wrapper__chat-contents__messages__message">
                       <div class="wrapper__chat-contents__messages__message__upper-info">
                         <div class="wrapper__chat-contents__messages__message__upper-info__talker">
@@ -16,31 +19,12 @@ $(document).on('turbolinks:load', function() {
                           ${message.content}
                         </div>
                         <div class="wrapper__chat-contents__messages__message__text__image">
-                          <img src=${message.image} >
+                          ${MessageImage}
                         </div>
                       </div>
                     </div>`
-
                   return html;
-    } else {
-      var html = `<div class="wrapper__chat-contents__messages__message">
-                    <div class="wrapper__chat-contents__messages__message__upper-info">
-                      <div class="wrapper__chat-contents__messages__message__upper-info__talker">
-                        ${message.user_name}
-                      </div>
-                      <div class="wrapper__chat-contents__messages__message__upper-info__data">
-                        ${message.data}
-                      </div>
-                    </div>
-                    <div class="wrapper__chat-contents__messages__message__text">
-                      <div class="wrapper__chat-contents__messages__message__text__content">
-                        ${message.content}
-                      </div>
-                    </div>
-                  </div>`
-      return html;
-    };
-  };
+  }
     $('#new_message').on('submit', function(e){
       e.preventDefault();
       var formData = new FormData(this);
