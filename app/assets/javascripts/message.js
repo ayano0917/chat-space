@@ -41,7 +41,6 @@ $(document).on('turbolinks:load', function() {
         var html = buildPost(message);
         $('.wrapper__chat-contents__messages').append(html);
         $('.wrapper__chat-contents__messages').animate({scrollTop: $('.wrapper__chat-contents__messages')[0].scrollHeight});
-        $('#message_content').val('')
         $('form')[0].reset();
       })
       .fail(function() {
