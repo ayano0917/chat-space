@@ -1,6 +1,5 @@
 class Api::MessagesController < ApplicationController
   def index
-    # binding.pry
     @group = Group.find(params[:group_id] )
     @message = Message.new
     @messages = @group.messages.includes(:user)
