@@ -55,31 +55,41 @@ $(document).on('turbolinks:load', function() {
     })
 
     var reloadMessages = function() {
-      if (window.location.href.match(/\/groups\/\d+\/messages/)){
+      // if (window.location.href.match(/\/groups\/\d+\/messages/)){
+      if (window.location.href.match('/messages')){
+
         last_message_id = $('.message:last').data('message-id') || 0;
+        // console.log(last_message_id);
         $.ajax({
           url: "api/messages",
           type: 'GET',
           dataType: 'json',
           data: {id: last_message_id}
         })
+
         .done(function(messages) {
-          if(data.length > 0){
+          // console.log
+
+          if(messages.length > 0){
             var insertHTML = '';
             messages.forEach(function(message) {
+              // console.log(messages);
               insertHTML += buildPost(message);
             });
             $('.wrapper__chat-contents__messages').append(insertHTML);
-            $('.wrapper__chat-contents__messages').animate({scrollTop: $('wrapper__chat-contents__messages')[0].scrollHeight}, 'slow');
+            $('.wrapper__chat-contents__messages').animate({scrollTop: $('.wrapper__chat-contents__messages')[0].scrollHeight}, 'slow');
           }          
         })
         .fail(function() {
           alert('更新に失敗しました');
         });
-      }
-      else {
+      }; 
+      // else {
         setInterval(reloadMessages, 5000);
+      // }
       }
-    }
+      $(this).on('turbolinks:click', function() {
+      clearInterval(timer)
+    });
   });
 });
