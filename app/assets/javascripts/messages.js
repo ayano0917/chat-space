@@ -59,7 +59,6 @@ $(document).on('turbolinks:load', function() {
         .done(function(messages) {
           var insertHTML = '';
           messages.forEach(function(message) {
-              // console.log(messages);
               insertHTML += buildPost(message);
             $('.wrapper__chat-contents__messages').animate({scrollTop: $('.wrapper__chat-contents__messages')[0].scrollHeight}, 'slow');
           });
