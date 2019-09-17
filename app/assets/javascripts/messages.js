@@ -1,14 +1,7 @@
 $(document).on('turbolinks:load', function() { 
   $(function(){
-    function buildImage(message){
-      if(message.image.url == null){
-        return ``
-      } else {
-        return `<img class="lower-message__image" src='${message.image.url}'></img>`
-      }
-    }
-
     function buildPost(message){
+      image = (message.image.url == null) ? '' : `<img class="lower-message__image" src='${message.image.url}'></img>`;
       var html = `<div class="wrapper__chat-contents__messages__message" data-message-id ="${message.id}" >
                     <div class="wrapper__chat-contents__messages__message__upper-info">
                     <div class="wrapper__chat-contents__messages__message__upper-info__talker">
@@ -23,7 +16,7 @@ $(document).on('turbolinks:load', function() {
                         ${message.content}
                       </div>
                       <div class="wrapper__chat-contents__messages__message__text__image">
-                        ${buildImage(message)}
+                        ${image}
                       </div>
                     </div>
                   </div>`
@@ -77,6 +70,9 @@ $(document).on('turbolinks:load', function() {
         });
       }
       }
-      setInterval(reloadMessages, 5000);
+      var timer = setInterval(reloadMessages, 5000);
+      $(this).on('turbolinks:click', function() {
+      clearInterval(timer)
+    });
   });
 });
