@@ -68,10 +68,7 @@ $(document).on('turbolinks:load', function() {
           alert('更新に失敗しました');
         });
       }
-      }
+    }
       var timer = setInterval(reloadMessages, 5000);
-      $(this).on('turbolinks:click', function() {
-      clearInterval(timer)
-    });
   });
 });
