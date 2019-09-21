@@ -3,7 +3,7 @@
     .wrapper__chat-contents__messages__message__upper-info__talker
       =message.user.name
     .wrapper__chat-contents__messages__message__upper-info__data
-      =message.created_at.strftime("%Y-%m-%d %H:%M")
+      =message.created_at.strftime("%Y/%m/%d %H:%M")
   .wrapper__chat-contents__messages__message__text
     - if message.content.present?
       .wrapper__chat-contents__messages__message__text__content
